@@ -18,7 +18,7 @@ elements.clearWordsBtn.addEventListener("click", () => {
 })
 const addNewWords = () => {
   const newWords = elements.wordInput.value.toUpperCase()
-  const regex = /[^a-zA-z\s]/g
+  const regex = /[^a-zA-Z\s]/g
   if (regex.test(newWords)){
     alert("No special characters in words")
     return null;
