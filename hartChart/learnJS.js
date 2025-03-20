@@ -102,7 +102,7 @@ const clearParagraphs = () => {
 
 const randomize = () => {
   let retrWords = JSON.parse(localStorage.getItem("words"))
-  
+  console.log(retrWords)
   if (retrWords.length <= 0){
     alert("Input some words");
     return null;
