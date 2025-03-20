@@ -8,6 +8,9 @@ const elements = {
   clearWordsBtn: document.getElementById('clear-word-list')
 };
 let words = [];
+localStorage.setItem("words", JSON.stringify(words))
+
+
 elements.clearWordsBtn.addEventListener("click", () => {
   let retrWords = JSON.parse(localStorage.getItem("words"))
   retrWords = [];
