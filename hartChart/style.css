@@ -1,0 +1,122 @@
+:root {
+  --spacing-large: 1.2rem;
+  --font-size-base: 3rem;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+p {
+  font-size: var(--font-size-base);
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  
+  letter-spacing: var(--spacing-large);
+  margin: 0;
+ 
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-height: 100vh;
+    width: 100%;
+}
+main{
+    min-height: 100vh;
+    width: 100%;
+    align-content: center;
+}
+.container-div{
+    width: 90%;
+    min-height: 90%;
+    margin: 0 auto;
+    border: 1px solid black;
+    
+}
+.edges{
+    display: flex;
+    justify-content: space-between;
+
+}
+/*.between{
+  width: 7%;
+}
+*/
+  @media print {
+  @page {
+    size: letter landscape; 
+    margin: 1cm; 
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+
+  .container-div {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    overflow: hidden;  
+    page-break-inside: avoid; 
+    page-break-before: avoid;
+    page-break-after: avoid;
+  }
+
+  .edges {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+  }
+
+  
+  .container-div, .edges, .hide {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    letter-spacing: .3em;
+    font-size: 2.35em;
+  }
+
+  .no-break {
+    page-break-inside: avoid;
+    page-break-before: avoid;
+    page-break-after: avoid;
+  }
+  .hide {
+    display: none;
+  }
+}

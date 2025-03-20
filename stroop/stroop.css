@@ -1,0 +1,105 @@
+:root {
+    --spacing-large: 2rem;
+    --font-size-base: 2rem;
+  }
+  html {
+    border: 1px solid red;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  p {
+    font-size: var(--font-size-base);
+    /*border: 1px solid black;*/
+    border: 1 px black;
+    margin: 0;
+    min-height: 100%;
+    width: 20%;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  
+  body{
+      background-color: white;
+      color: black;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      min-height: 100vh;
+      width: 100%;
+      border: 1px solid red
+  }
+  main{
+      min-height: 100vh;
+      width: 100%;
+      align-content: center;
+      border: 1px solid purple;
+  }
+  .container-div{
+      width: 90%;
+      min-height: 90vh;
+      margin: 0 auto;
+      border: 1px solid black;
+      
+  }
+  .edges{
+      display: flex;
+      justify-content: space-between;
+      border: 1 px black;
+  }
+
+  @media print {
+    @page {
+      size: letter landscape; /* or "letter" for US sizes */
+      margin: 0; /* Minimal margins to maximize space */
+    }
+    p {
+      font-size: 1.5em;
+      height: 100%;
+    }
+    html, body {
+      width: 100%;
+      height: 100%; /* Ensure the body fits one page */
+      margin: 0;
+      padding: 0;
+    }
+    
+  
+    .hide{
+      display: none;
+    }
+    main{
+      height: 100%;
+      width: 100%;
+      padding: 0%;
+    }
+    .container-div {
+      padding: auto;
+      height: auto;
+    }
+  }
