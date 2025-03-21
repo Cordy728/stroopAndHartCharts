@@ -19,12 +19,14 @@ elements.clearWordsBtn.addEventListener("click", () => {
 const addNewWords = () => {
   const newWords = elements.wordInput.value.toUpperCase()
   const regex = /[^a-zA-Z\s]/g
-  if (regex.test(newWords)){
-    alert("No special characters in words")
+  const regex2 = /^$/g
+  const newWordsTrimmed = newWords.trim()
+  if (regex.test(newWords) || regex2.test(newWordsTrimmed)){
+    alert("No special characters or extra spaces in words")
     return null;
   }
   let retrWords = JSON.parse(localStorage.getItem("words"))
-  retrWords = newWords.split(" ").concat(retrWords)
+  retrWords = newWordsTrimmed.split(/\s/).concat(retrWords)
   localStorage.setItem("words", JSON.stringify(retrWords));
   elements.wordInput.value = ""
 }
