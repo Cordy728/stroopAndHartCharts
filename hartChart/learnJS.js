@@ -5,28 +5,36 @@ const elements = {
   wordInput: document.getElementById('word-input'),
   submitBtn: document.getElementById('submit'),
   disableColorBtn: document.getElementById('disable-color'),
-  clearWordsBtn: document.getElementById('clear-word-list')
+  clearWordsBtn: document.getElementById('clear-word-list'),
+  results: document.getElementById('results')
 };
 let words = [];
-localStorage.setItem("words", JSON.stringify(words))
+
 
 
 elements.clearWordsBtn.addEventListener("click", () => {
   let retrWords = JSON.parse(localStorage.getItem("words"))
   retrWords = [];
   localStorage.setItem("words", JSON.stringify(retrWords))
+
+  elements.results.innerText = 'Cleared wordlist';
 })
+
 const addNewWords = () => {
-  const newWords = elements.wordInput.value.toUpperCase()
-  const regex = /[^a-zA-Z\s]/g
+  const newWords = elements.wordInput.value.toUpperCase();
+  const regex = /^[a-zA-Z]{3,6}$/
   const regex2 = /^$/g
-  const newWordsTrimmed = newWords.trim()
-  if (regex.test(newWords) || regex2.test(newWordsTrimmed)){
-    alert("No special characters or extra spaces in words")
+  const newWordsTrimmed = newWords.trim();
+  const splitWords = newWordsTrimmed.split(/\s/);
+  console.log(splitWords)
+  const hasInvalidWord = splitWords.some(word => !regex.test(word))
+  console.log(hasInvalidWord)
+  if ( hasInvalidWord || regex2.test(newWordsTrimmed)){
+    alert("Words must be 3 to 6 letters long and have no special characters or extra spaces")
     return null;
   }
   let retrWords = JSON.parse(localStorage.getItem("words"))
-  retrWords = newWordsTrimmed.split(/\s/).concat(retrWords)
+  retrWords = splitWords.concat(retrWords)
   localStorage.setItem("words", JSON.stringify(retrWords));
   elements.wordInput.value = ""
 }
