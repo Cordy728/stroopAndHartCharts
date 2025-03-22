@@ -25,7 +25,7 @@ const addNewWords = () => {
   const regex = /^[a-zA-Z]{3,6}$/
   const regex2 = /^$/g
   const newWordsTrimmed = newWords.trim();
-  const splitWords = newWordsTrimmed.split(/\s/);
+  const splitWords = newWordsTrimmed.split(/\s+/);
   console.log(splitWords)
   const hasInvalidWord = splitWords.some(word => !regex.test(word))
   console.log(hasInvalidWord)
